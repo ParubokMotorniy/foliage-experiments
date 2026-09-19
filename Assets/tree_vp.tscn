@@ -2,18 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://cvxroocf0mfnj" path="res://Assets/tree-vp/source/tree-vp.fbx" id="1_4stk7"]
 [ext_resource type="Material" uid="uid://bceuoyxltgwas" path="res://Assets/foliage_material.tres" id="2_0d6hd"]
-[ext_resource type="Shader" uid="uid://mspf2hect61a" path="res://tree_vp_shader.gdshader" id="3_ff6wr"]
+[ext_resource type="Shader" uid="uid://mspf2hect61a" path="res://tree_foliage.gdshader" id="3_ff6wr"]
 [ext_resource type="Texture2D" uid="uid://bhsesyyhbt5u" path="res://Assets/tree-vp/source/VinesB_Nor.png" id="4_8h2d4"]
 [ext_resource type="Texture2D" uid="uid://cfxukw8wg1top" path="res://Assets/tree-vp/source/VinesB_Col.png" id="4_e063p"]
 [ext_resource type="Texture2D" uid="uid://bbey2wyiih3sb" path="res://Assets/tree-vp/source/VinesB_Rgn.png" id="5_0up1m"]
 [ext_resource type="Texture2D" uid="uid://cgf4kinr8wl4y" path="res://Assets/tree-vp/source/VinesB_Alpha.png" id="5_ff6wr"]
 [ext_resource type="Texture2D" uid="uid://cxmmmfjlud34y" path="res://Assets/tree-vp/source/Cluste_Col2.png" id="5_r7yci"]
+[ext_resource type="Texture2D" uid="uid://pkikty1gbgsg" path="res://Assets/tree-vp/source/VinesB_SSSS.png" id="6_pmc1e"]
 [ext_resource type="Texture2D" uid="uid://b51j6tixjku5b" path="res://Assets/tree-vp/source/Cluste_alpha2.png" id="7_e063p"]
 [ext_resource type="Texture2D" uid="uid://wa3n0p7ocg1k" path="res://Assets/tree-vp/source/Cluste_Nor2.png" id="7_no0s4"]
 [ext_resource type="Texture2D" uid="uid://c3qg0k6afv40c" path="res://Assets/tree-vp/source/BarkB_Col.png" id="8_myg8q"]
 [ext_resource type="Texture2D" uid="uid://dpiv8ms55xhm4" path="res://Assets/tree-vp/source/BarkB_Alpha.png" id="9_v8wsf"]
 [ext_resource type="Texture2D" uid="uid://ircpmuf6l61l" path="res://Assets/tree-vp/source/BarkB_Nor.png" id="10_es3ph"]
 [ext_resource type="Texture2D" uid="uid://drpxoqxcfhcfc" path="res://Assets/tree-vp/source/PruneB_Col.png" id="10_xhegi"]
+[ext_resource type="Shader" uid="uid://c17uedy27yhty" path="res://tree_trunk.gdshader" id="11_ggvn1"]
 [ext_resource type="Texture2D" uid="uid://r08246m2whv" path="res://Assets/tree-vp/source/PruneB_Alpha.png" id="11_jidgy"]
 [ext_resource type="Texture2D" uid="uid://baq30uk6m6aex" path="res://Assets/tree-vp/source/Cortex_Col.png" id="12_aevxf"]
 [ext_resource type="Texture2D" uid="uid://ckhpvc4d7qtmc" path="res://Assets/tree-vp/source/BarkB_Rgn.png" id="12_ggvn1"]
@@ -30,7 +32,7 @@ shader_parameter/texture_albedo = ExtResource("4_e063p")
 shader_parameter/texture_alpha = ExtResource("5_ff6wr")
 shader_parameter/normal_texture = ExtResource("4_8h2d4")
 shader_parameter/roughness_texture = ExtResource("5_0up1m")
-shader_parameter/transmission = Color(0, 0.57312953, 0, 1)
+shader_parameter/sss_texture = ExtResource("6_pmc1e")
 shader_parameter/sway_speed = 6.99
 shader_parameter/sway_strength = 0.03
 shader_parameter/sway_phase_len = 7.45
@@ -41,43 +43,39 @@ shader = ExtResource("3_ff6wr")
 shader_parameter/texture_albedo = ExtResource("5_r7yci")
 shader_parameter/texture_alpha = ExtResource("7_e063p")
 shader_parameter/normal_texture = ExtResource("7_no0s4")
-shader_parameter/transmission = Color(0, 0, 0, 1)
 shader_parameter/sway_speed = 2.005
-shader_parameter/sway_strength = 0.035
+shader_parameter/sway_strength = 0.01
 shader_parameter/sway_phase_len = 5.175
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yvj3p"]
 render_priority = 0
-shader = ExtResource("3_ff6wr")
+shader = ExtResource("11_ggvn1")
 shader_parameter/texture_albedo = ExtResource("8_myg8q")
 shader_parameter/texture_alpha = ExtResource("9_v8wsf")
 shader_parameter/normal_texture = ExtResource("10_es3ph")
 shader_parameter/roughness_texture = ExtResource("12_ggvn1")
-shader_parameter/transmission = Color(0, 0, 0, 1)
 shader_parameter/sway_speed = 0.445
 shader_parameter/sway_strength = 0.025
 shader_parameter/sway_phase_len = 0.145
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2b0l7"]
 render_priority = 0
-shader = ExtResource("3_ff6wr")
+shader = ExtResource("11_ggvn1")
 shader_parameter/texture_albedo = ExtResource("10_xhegi")
 shader_parameter/texture_alpha = ExtResource("11_jidgy")
 shader_parameter/normal_texture = ExtResource("13_hi458")
 shader_parameter/roughness_texture = ExtResource("16_pmc1e")
-shader_parameter/transmission = Color(0, 0, 0, 1)
 shader_parameter/sway_speed = 1.0
 shader_parameter/sway_strength = 0.05
 shader_parameter/sway_phase_len = 8.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p444i"]
 render_priority = 0
-shader = ExtResource("3_ff6wr")
+shader = ExtResource("11_ggvn1")
 shader_parameter/texture_albedo = ExtResource("12_aevxf")
 shader_parameter/texture_alpha = ExtResource("13_8h2d4")
 shader_parameter/normal_texture = ExtResource("16_0up1m")
 shader_parameter/roughness_texture = ExtResource("20_s3b1m")
-shader_parameter/transmission = Color(0, 0, 0, 1)
 shader_parameter/sway_speed = 1.0
 shader_parameter/sway_strength = 0.05
 shader_parameter/sway_phase_len = 8.0

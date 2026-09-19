@@ -1,17 +1,19 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bceuoyxltgwas"]
 
-[ext_resource type="Shader" uid="uid://mspf2hect61a" path="res://tree_vp_shader.gdshader" id="1_iqx5c"]
+[ext_resource type="Shader" uid="uid://mspf2hect61a" path="res://tree_foliage.gdshader" id="1_pbqc1"]
 [ext_resource type="Texture2D" uid="uid://b2jhkh14uo2h3" path="res://Assets/tree-vp/source/Cluste_Col.png" id="2_cl1kn"]
 [ext_resource type="Texture2D" uid="uid://bonfv1sut3ttr" path="res://Assets/tree-vp/source/Cluste_Rgh.png" id="2_ko7li"]
 [ext_resource type="Texture2D" uid="uid://1ahgflqxftyo" path="res://Assets/tree-vp/source/Cluste_alpha.png" id="3_0f54t"]
+[ext_resource type="Texture2D" uid="uid://kwevsmpf1i2w" path="res://Assets/tree-vp/source/Cluste_ssss.png" id="3_dvsi8"]
 
 [resource]
 resource_name = "foliage_material"
 render_priority = 0
-shader = ExtResource("1_iqx5c")
+shader = ExtResource("1_pbqc1")
 shader_parameter/texture_albedo = ExtResource("2_cl1kn")
 shader_parameter/texture_alpha = ExtResource("3_0f54t")
 shader_parameter/roughness_texture = ExtResource("2_ko7li")
+shader_parameter/sss_texture = ExtResource("3_dvsi8")
 shader_parameter/transmission = Color(0.22397411, 0.7703646, 0.61013, 1)
 shader_parameter/sway_speed = 1.43
 shader_parameter/sway_strength = 0.115

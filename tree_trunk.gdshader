@@ -6,8 +6,6 @@ uniform sampler2D texture_alpha : source_color;
 uniform sampler2D normal_texture : hint_normal;
 uniform sampler2D roughness_texture;
 
-uniform vec4 transmission : source_color;
-
 uniform float sway_speed = 1.0;
 uniform float sway_strength = 0.05;
 uniform float sway_phase_len = 8.0;
@@ -26,7 +24,6 @@ void fragment() {
     ALPHA = texture(texture_alpha, UV).r;
     METALLIC = 0.0;
     ROUGHNESS = texture(roughness_texture, UV).r;;
-    SSS_TRANSMITTANCE_COLOR = transmission.rgba;
 }
 //void light() {
 //	// Called for every pixel for every light affecting the material.
