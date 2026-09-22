@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bceuoyxltgwas"]
 
-[ext_resource type="Shader" uid="uid://mspf2hect61a" path="res://tree_foliage.gdshader" id="1_pbqc1"]
+[ext_resource type="Shader" uid="uid://mspf2hect61a" path="res://Assets/Shaders/tree_foliage.gdshader" id="1_pbqc1"]
 [ext_resource type="Texture2D" uid="uid://b2jhkh14uo2h3" path="res://Assets/tree-vp/source/Cluste_Col.png" id="2_cl1kn"]
 [ext_resource type="Texture2D" uid="uid://bonfv1sut3ttr" path="res://Assets/tree-vp/source/Cluste_Rgh.png" id="2_ko7li"]
 [ext_resource type="Texture2D" uid="uid://1ahgflqxftyo" path="res://Assets/tree-vp/source/Cluste_alpha.png" id="3_0f54t"]
