@@ -11,6 +11,10 @@ uniform sampler2D sss_texture : hint_default_black;
 uniform float sway_speed = 1.0;
 uniform float sway_strength = 0.05;
 uniform float sway_phase_len = 8.0;
+uniform float bottom_sss_strength = 0.1;
+uniform float top_metallic = 0.1;
+uniform float bottom_rim = 0.5;
+uniform float sss_depth = 0.5;
 
 //stable, but somewhat unrealisitc way to determine leaf side.
 varying flat int leaf_side;
@@ -40,7 +44,7 @@ void fragment() {
 	float actual_roughness = sampled_roughness;
 	if(sampled_roughness == 0.0)
 	{
-		actual_roughness = 0.65;
+		actual_roughness = 0.75;
 	}
 	
 	vec4 sampled_sss_color = texture(sss_texture, UV).rgba;
@@ -53,12 +57,12 @@ void fragment() {
 	if(leaf_side == 1)
 	{
 		//top leaf side, waxy
-    	METALLIC = 0.01;
-    	ROUGHNESS = actual_roughness * 0.5;
+    	METALLIC = top_metallic;
+    	ROUGHNESS = actual_roughness * 0.75;
     	SSS_TRANSMITTANCE_COLOR = actual_sss_color;
-		SSS_STRENGTH = 0.01;
-		//SSS_TRANSMITTANCE_DEPTH = 
-		RIM = 0.05;
+		SSS_STRENGTH = bottom_sss_strength * 0.5;
+		SSS_TRANSMITTANCE_DEPTH = sss_depth;
+		RIM = bottom_rim * 0.5;
 	}
 	else
 	{
@@ -66,9 +70,9 @@ void fragment() {
     	METALLIC = 0.0;
     	ROUGHNESS = actual_roughness;
     	SSS_TRANSMITTANCE_COLOR = actual_sss_color;
-		SSS_STRENGTH = 0.05;
-		//SSS_TRANSMITTANCE_DEPTH = 
-		RIM = 0.1;
+		SSS_STRENGTH = bottom_sss_strength;
+		SSS_TRANSMITTANCE_DEPTH = sss_depth;
+		RIM = bottom_rim;
 	}
 }
 //void light() {

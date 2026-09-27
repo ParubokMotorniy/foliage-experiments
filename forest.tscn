@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://blme4x675mup"]
+
+[ext_resource type="PackedScene" uid="uid://gktm1vrgqosx" path="res://Assets/tree_vp.tscn" id="1_lifw2"]
+
+[node name="Forest" type="Node3D" unique_id=1247454797]
+
+[node name="tree-vp2" parent="." unique_id=1973453873 instance=ExtResource("1_lifw2")]
+transform = Transform3D(0.40603998, 0, 0.8143903, 0, 0.91, 0, -0.8143903, 0, 0.40603998, 13.094349, 0, 4.086115)
+
+[node name="tree-vp" parent="." unique_id=1819319112 instance=ExtResource("1_lifw2")]
+
+[node name="tree-vp3" parent="." unique_id=1244105234 instance=ExtResource("1_lifw2")]
+transform = Transform3D(0.8563363, 0, -0.28652608, 0, 0.903, 0, 0.28652608, 0, 0.8563363, -1.7945418, 0, 9.933)
