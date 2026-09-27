@@ -1,6 +1,7 @@
-[gd_scene format=4 uid="uid://b8l8tvd1icin2"]
+[gd_scene format=4 uid="uid://df23go01rqerc"]
 
 [ext_resource type="Texture2D" uid="uid://b2jhkh14uo2h3" path="res://Assets/tree-vp/source/Cluste_Col.png" id="1_pmc1e"]
+[ext_resource type="Material" uid="uid://bceuoyxltgwas" path="res://Assets/Materials/foliage_material.tres" id="2_0d6hd"]
 [ext_resource type="Shader" uid="uid://mspf2hect61a" path="res://Assets/Shaders/tree_foliage.gdshader" id="3_ff6wr"]
 [ext_resource type="Texture2D" uid="uid://bhsesyyhbt5u" path="res://Assets/tree-vp/source/VinesB_Nor.png" id="4_8h2d4"]
 [ext_resource type="Texture2D" uid="uid://cfxukw8wg1top" path="res://Assets/tree-vp/source/VinesB_Col.png" id="4_e063p"]
@@ -16,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://drpxoqxcfhcfc" path="res://Assets/tree-vp/source/PruneB_Col.png" id="10_xhegi"]
 [ext_resource type="Shader" uid="uid://c17uedy27yhty" path="res://Assets/Shaders/tree_trunk.gdshader" id="11_ggvn1"]
 [ext_resource type="Texture2D" uid="uid://r08246m2whv" path="res://Assets/tree-vp/source/PruneB_Alpha.png" id="11_jidgy"]
-[ext_resource type="Material" uid="uid://bceuoyxltgwas" path="res://Assets/Materials/foliage_material.tres" id="11_pmc1e"]
 [ext_resource type="Texture2D" uid="uid://baq30uk6m6aex" path="res://Assets/tree-vp/source/Cortex_Col.png" id="12_aevxf"]
 [ext_resource type="Texture2D" uid="uid://ckhpvc4d7qtmc" path="res://Assets/tree-vp/source/BarkB_Rgn.png" id="12_ggvn1"]
 [ext_resource type="Texture2D" uid="uid://b1hirn76pcq1j" path="res://Assets/tree-vp/source/Cortex_Alpha.png" id="13_8h2d4"]
@@ -264,7 +264,7 @@ shader = ExtResource("3_ff6wr")
 shader_parameter/texture_albedo = ExtResource("5_r7yci")
 shader_parameter/texture_alpha = ExtResource("7_e063p")
 shader_parameter/normal_texture = ExtResource("7_no0s4")
-shader_parameter/sway_speed = 0.7
+shader_parameter/sway_speed = 0.5
 shader_parameter/sway_strength = 0.1
 shader_parameter/sway_phase_len = 5.0
 shader_parameter/bottom_sss_strength = 0.75
@@ -307,10 +307,24 @@ shader_parameter/sway_phase_len = 8.0
 
 [node name="tree-vp" type="Node3D" unique_id=1973453873]
 
+[node name="Camera" type="Camera3D" parent="." unique_id=750644824]
+transform = Transform3D(68.59208, -32.40135, 65.15581, 8.940697e-06, 89.53957, 44.527138, -72.767624, -30.542088, 61.41705, 7.3588915, 4.958309, 6.925791)
+visible = false
+fov = 22.895193
+near = 0.1
+far = 100.0
+
+[node name="Camera_001" type="Camera3D" parent="." unique_id=63535693]
+transform = Transform3D(68.59206, -32.401363, 65.15583, 4.470348e-06, 89.53957, 44.52715, -72.76763, -30.542088, 61.417034, 7.3588915, 4.958309, 6.925791)
+visible = false
+fov = 22.895193
+near = 0.1
+far = 100.0
+
 [node name="TreeGen" type="MeshInstance3D" parent="." unique_id=1273411557]
 transform = Transform3D(100, 0, 0, 0, -2.3841858e-05, 99.99999, 0, -99.99999, -2.3841858e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_rriws")
-surface_material_override/0 = ExtResource("11_pmc1e")
+surface_material_override/0 = ExtResource("2_0d6hd")
 surface_material_override/1 = SubResource("ShaderMaterial_cl1kn")
 surface_material_override/2 = SubResource("ShaderMaterial_0f54t")
 surface_material_override/3 = SubResource("ShaderMaterial_yvj3p")

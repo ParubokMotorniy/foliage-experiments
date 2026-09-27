@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bcb651008f8nl"]
+
+[ext_resource type="PackedScene" uid="uid://df23go01rqerc" path="res://Assets/Scenes/tree_vp.tscn" id="1_dc07c"]
+[ext_resource type="Texture2D" uid="uid://bpabj11nus03e" path="res://Assets/textures/belfast_sunset_puresky_2k.hdr" id="2_fckns"]
+[ext_resource type="Texture2D" uid="uid://bevpctn5s5s2j" path="res://Assets/textures/forest_leaves_02_diffuse_2k.png" id="3_8kaf8"]
+[ext_resource type="Texture2D" uid="uid://0o6pkd4w11wj" path="res://Assets/textures/forest_leaves_02_ao_2k.png" id="4_5xqae"]
+[ext_resource type="Texture2D" uid="uid://bjej3bi7vq6d" path="res://Assets/textures/forest_leaves_02_disp_2k.png" id="5_25t8q"]
+[ext_resource type="Texture2D" uid="uid://buqdvo71lvsmw" path="res://Assets/textures/forest_leaves_02_nor_dx_2k.png" id="6_42b6u"]
+[ext_resource type="Texture2D" uid="uid://bfbd1qgjdyy2q" path="res://Assets/textures/forest_leaves_02_rough_2k.png" id="7_k7p37"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_s4ejc"]
+panorama = ExtResource("2_fckns")
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_bw3fi"]
+sky_material = SubResource("PanoramaSkyMaterial_s4ejc")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_vyxqj"]
+background_mode = 2
+sky = SubResource("Sky_bw3fi")
+sky_custom_fov = 43.1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.08
+volumetric_fog_albedo = Color(1, 0.66431814, 0.52549326, 1)
+volumetric_fog_emission = Color(0.017732391, 0.017732391, 0.01773239, 1)
+volumetric_fog_emission_energy = 0.4
+volumetric_fog_anisotropy = 0.5
+volumetric_fog_length = 60.0
+volumetric_fog_detail_spread = 1.4640857
+volumetric_fog_sky_affect = 0.0
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 0.75
+
+[sub_resource type="BoxMesh" id="BoxMesh_vyxqj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyxqj"]
+albedo_texture = ExtResource("3_8kaf8")
+roughness_texture = ExtResource("7_k7p37")
+normal_enabled = true
+normal_texture = ExtResource("6_42b6u")
+ao_enabled = true
+ao_light_affect = 0.35
+ao_texture = ExtResource("4_5xqae")
+heightmap_enabled = true
+heightmap_texture = ExtResource("5_25t8q")
+uv1_scale = Vector3(5, 5, 5)
+uv1_offset = Vector3(0.28, 0, 0)
+texture_filter = 5
+
+[node name="Forest" type="Node3D" unique_id=1247454797]
+
+[node name="tree-vp8" parent="." unique_id=1973453873 instance=ExtResource("1_dc07c")]
+transform = Transform3D(1.2341002, 0, 0.21316604, 0, 1.2523751, 0, -0.21316604, 0, 1.2341002, 17.021013, 0.24311972, -11.046343)
+
+[node name="tree-vp7" parent="." unique_id=657374448 instance=ExtResource("1_dc07c")]
+transform = Transform3D(1.0104663, 0, -0.224015, 0, 1.035, 0, 0.224015, 0, 1.0104663, 5.0883684, 0.4814763, 16.666422)
+
+[node name="tree-vp2" parent="." unique_id=921753157 instance=ExtResource("1_dc07c")]
+transform = Transform3D(0.40603998, 0, 0.8143903, 0, 0.91, 0, -0.8143903, 0, 0.40603998, 13.094349, 0.24073815, 4.086115)
+
+[node name="tree-vp" parent="." unique_id=1819319112 instance=ExtResource("1_dc07c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24073815, 0)
+
+[node name="tree-vp3" parent="." unique_id=1244105234 instance=ExtResource("1_dc07c")]
+transform = Transform3D(0.8563363, 0, -0.28652608, 0, 0.903, 0, 0.28652608, 0, 0.8563363, -1.7945418, 0.24073815, 9.933)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1426969483]
+environment = SubResource("Environment_vyxqj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=325512446]
+transform = Transform3D(-0.7615383, -0.2636141, -0.59208703, 0, -0.9135455, 0.40673658, -0.6481199, 0.3097455, 0.69569993, 0, 58.43189, 0)
+light_color = Color(0.96900684, 0.80742276, 0.84955275, 1)
+light_energy = 1.1
+light_volumetric_fog_energy = 1.2
+light_specular = 0.4
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=2027889945]
+transform = Transform3D(80, 0, 0, 0, 1, 0, 0, 0, 80, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_vyxqj")
+surface_material_override/0 = SubResource("StandardMaterial3D_vyxqj")
+
+[node name="tree-vp4" parent="." unique_id=1786347748 instance=ExtResource("1_dc07c")]
+transform = Transform3D(-0.16445974, 0, 1.0623455, 0, 1.075, 0, -1.0623455, 0, -0.16445974, 6.999342, 0.075698376, -13.077329)
+
+[node name="tree-vp5" parent="." unique_id=640172513 instance=ExtResource("1_dc07c")]
+transform = Transform3D(0.99026805, 0, 0.1391731, 0, 1, 0, -0.1391731, 0, 0.99026805, -11.401618, 0.28078747, -7.713867)
+
+[node name="tree-vp6" parent="." unique_id=1741894464 instance=ExtResource("1_dc07c")]
+transform = Transform3D(-1.0751442, 0, -0.30626288, 0, 1.1179141, 0, 0.30626288, 0, -1.0751442, -15.653271, 0.45812464, 13.032307)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1541414018]
+transform = Transform3D(-0.38403004, 0, 0.9233206, 0, 1, 0, -0.9233206, 0, -0.38403004, 42.244446, 11.268998, -25.445229)
+current = true
+fov = 83.5
+near = 0.292
